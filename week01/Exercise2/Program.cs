@@ -8,8 +8,9 @@ class Program
         string grade = Console.ReadLine();
         int percent = int.Parse(grade);
 
-        //initial the letter
+        //initialize the letter and sign
         string letter = "";
+        string sign = "";
 
         if (percent >= 90)
         {
@@ -31,12 +32,38 @@ class Program
         {
             letter = "F";
         }
-        Console.WriteLine($"Your grade is: {letter}");
+
+        // Determine + or - sign 
+        int lastDigit = percent % 10;
+
+        if (lastDigit >= 7)
+        {
+            sign = "+";
+        }
+        else if (lastDigit < 3)
+        {
+            sign = "-";
+        }
+
+        //Determine No A+ and F+- sign
+        if (letter == "A" && sign == "+")
+        {
+            sign = "";
+        }
+        if (letter == "F")
+        {
+            sign = "";
+        }
+
+        //display Letter and Signs
+        Console.WriteLine($"Your grade is: {letter}{sign}");
         Console.WriteLine();
 
+        //words for the user
         if (percent >= 70)
         {
             Console.WriteLine("You passed!");
+            Console.WriteLine();
         }
         else
         {
