@@ -10,10 +10,11 @@ class Program
 
         int userNumber = -1;
         Console.Write("\nEnter a list of numbers, type 0 when finished. ");
+        Console.WriteLine();
 
         while (userNumber != 0)
         {
-            Console.Write("\nEnter number: ");
+            Console.Write("Enter number: ");
             userNumber = int.Parse(Console.ReadLine());
 
             // Only add the number to the list if it is not 0.
@@ -61,5 +62,15 @@ class Program
         Console.WriteLine($"The max is: {max}");
         Console.WriteLine();
 
+
+        // Sort the list in ascending order (smallest to largest)
+        numbers.Sort();
+        Console.WriteLine("The sorted list is: ");
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+
+        }
+        Console.WriteLine();
     }
 }
