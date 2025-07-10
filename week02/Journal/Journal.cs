@@ -10,7 +10,10 @@ public class Journal
 
     public void DisplayAll()
     {
-
+        foreach (Entry entry in _entries)
+        {
+            entry.Display(); //Evrey journal
+        }
     }
 
     public void SaveToFile(string file)
