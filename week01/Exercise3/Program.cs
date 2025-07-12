@@ -17,7 +17,6 @@ class Program
 
         do
         {
-
             // For Part 3, Generate a random magic number between 0–100
             Random randomGenerator = new Random();
             int magicNumber = randomGenerator.Next(0, 101);

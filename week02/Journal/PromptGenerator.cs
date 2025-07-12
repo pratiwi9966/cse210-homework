@@ -1,35 +1,35 @@
 using System;
 using System.Collections.Generic;
 
-public class PrompGenerator
+public class PromptGenerator
 {
-    public List<string> _prompts = new List<string>();
+    // Member variables 
+    private List<string> _prompts;
+    private Random _random;
 
+    // Method
+    public PromptGenerator()
+    {
+        _random = new Random();
+        _prompts = new List<string>
+        {
+
+            "What did you learn from your scripture study today? How did it inspire you?",
+            "What is something you've been wanting to do but haven't had the chance? Why not?",
+            "What is one or two things you can do today to save more time for " +
+                "studying or preparing your teaching materials?",
+            "What are some things that make you feel confident? Why do they have " +
+                "that effect on you?",
+            "What is something you learned today that you could share with your family?",
+            "What is one thing you can do to feel more uplifted and spiritually " +
+                 "refreshed today? Why would that help?"
+        };
+    }
 
     public string GetRandomPrompt()
     {
-        _prompts.Add(
-            "What did you learn from your scripture study today? How did it inspire you?"
-            );
-        _prompts.Add(
-            "What is something you've been wanting to do but haven't had the chance? Why not?"
-            );
-        _prompts.Add(
-            "What is one or two things you can do today to save more time for " +
-            "studying or preparing your teaching materials?"
-            );
-        _prompts.Add(
-            "What are some things that make you feel confident? Why do they have " +
-            "that effect on you?"
-            );
-        _prompts.Add(
-            "What is something you learned today that you could share with your family?"
-            );
-        _prompts.Add(
-            "What is one thing you can do to feel more uplifted and spiritually " +
-            "refreshed today? Why would that help?"
-            );
-        return "";//return a enpty string, make this no error
+        int index = _random.Next(_prompts.Count);
+        return _prompts[index];
     }
-    
+
 }

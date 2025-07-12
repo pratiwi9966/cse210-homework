@@ -1,4 +1,4 @@
-
+using System;
 public class Entry
 {
     // Member variables 
@@ -9,7 +9,9 @@ public class Entry
     // Method
     public void Display()
     {
-        Console.WriteLine($"{_date} - \nPrompt:{_promptText}");
+        Console.WriteLine("----------------------------------------------------------------------");
+        Console.WriteLine($"{_date} - \nPrompt - {_promptText}");
         Console.WriteLine($"Your thoughts: {_entryText}\n");
+        Console.WriteLine("----------------------------------------------------------------------");
     }
 }
