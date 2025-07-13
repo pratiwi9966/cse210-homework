@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class PromptGenerator
 {
-    // Member variables 
-    private List<string> _prompts;
+    // Member variables, private — only accessible inside this class.
+    private List<string> _prompts; //stores all the possible journal prompts.
     private Random _random;
 
     // Method
-    public PromptGenerator()
+    public PromptGenerator()//the constructor of the class
     {
         _random = new Random();
         _prompts = new List<string>
@@ -26,9 +26,14 @@ public class PromptGenerator
         };
     }
 
+    // Method
     public string GetRandomPrompt()
-    {
+    {   //int index stores the random number into a variable named index.
+        //_random is an object of the Random class, _prompts is a List<string>
+        //.Count tells how many items are in that list.(the _prompts.Count is 6)
         int index = _random.Next(_prompts.Count);
+        //_prompts[index] gets the string (prompt) at that position in the list.
+        //Returns the string at the chosen index.
         return _prompts[index];
     }
 
