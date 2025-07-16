@@ -4,7 +4,7 @@ using System.IO;
 
 public class Journal
 {
-    // List of entries
+    // List of entries(把每次輸入的內容當成1個項目存在_entries裡面)
     private List<Entry> _entries = new List<Entry>();
 
     // Add an entry to the journal
@@ -18,7 +18,7 @@ public class Journal
     {
         foreach (Entry entry in _entries)
         {
-            entry.Display(); //Evrey journal
+            entry.Display(); //Evrey journal the user wrote
         }
     }
     // Save the journal entries to a file 
