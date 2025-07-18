@@ -34,6 +34,10 @@ class Program
             if (choice == "1")
             {
                 string prompt = promptGenerator.GetRandomPrompt();
+                Console.WriteLine($"What is the weather today: ");
+                string weather = Console.ReadLine();
+                Console.WriteLine($"How do you feel today? (Happy, sad, etc.) ");
+                string mood = Console.ReadLine();
                 Console.WriteLine($"\nPrompt: {prompt}");
                 Console.WriteLine("Your thoughts: ");
                 string response = Console.ReadLine();
@@ -41,6 +45,8 @@ class Program
                 Entry entry = new Entry
                 {
                     _date = DateTime.Now.ToShortDateString(),
+                    _weather = weather,
+                    _mood = mood,
                     _promptText = prompt,
                     _entryText = response
                 };
