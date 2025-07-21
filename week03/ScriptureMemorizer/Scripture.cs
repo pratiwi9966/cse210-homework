@@ -27,25 +27,36 @@ public class Scripture
         }
     }
 
-    //First Method: Randomly hides a specified number of words.
+    //First Method: It hides a random number of words in the scripture (the number passed as numberToHide).
     public void HideRandomWords(int numberToHide)
     {
+        //Creates a Random object to randomly select words from the list of visible words.
         Random random = new Random();
-        List<Word> visibleWords = new List<Word>();
 
+        //Creates a new empty list called visibleWords to choose from words that are still shown.
+        List<Word> shownWords = new List<Word>();
+
+        //Loops through every Word object in the _words list (which holds the entire scripture).
+        // to find out which words are not hidden yet.
         foreach (Word word in _words)
         {
+            // Checks if the word is not hidden, to add shown words to the shownWords list.
             if (!word.IsHidden())
             {
-                visibleWords.Add(word);
+                shownWords.Add(word);//adds the words to the list
             }
         }
 
-        for (int i = 0; i < numberToHide && visibleWords.Count > 0; i++)
+        // loop that runs up to numberToHide times, but stops early if no shown words are left.
+        for (int i = 0; i < numberToHide && shownWords.Count > 0; i++)
         {
-            int randomIndex = random.Next(visibleWords.Count);
-            visibleWords[randomIndex].Hide();
-            visibleWords.RemoveAt(randomIndex);
+            //gives us the index of a random word in the shownWords list.
+            int randomIndex = random.Next(shownWords.Count);
+            // Calls the Hide() method on that randomly selected word.( hides the word.)
+            shownWords[randomIndex].Hide();
+            //Removes the word from the shownWords list. 
+            // so we won't pick and hide the same word again.
+            shownWords.RemoveAt(randomIndex);
 
         }
     }
@@ -85,8 +96,8 @@ public class Scripture
             }
         }
 
-        // If we finished the loop, all words are hidden
+        // If finished the loop, all words are hidden
         return true;
     }
-    
+
 }
