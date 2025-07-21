@@ -51,7 +51,7 @@ class Program
                     _entryText = response
                 };
 
-                myJournal.AddEntry(entry);
+                myJournal.AddEntry(entry);g
             }
             else if (choice == "2")
             {
