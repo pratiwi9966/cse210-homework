@@ -46,8 +46,8 @@ class Program
                 break;
             }
 
-            // Hide 1 random words before the next round
-            scripture.HideRandomWords(1);
+            // Hide 4 random words before the next round
+            scripture.HideRandomWords(4);
 
             // Check if all words are hidden.
             // If they are, clear the screen, show the fully hidden scripture,
@@ -65,7 +65,7 @@ class Program
         }
 
         // Final message (only if user quit early)
-        if (!allWordsHidden)
+        if (allWordsHidden == false)
         {
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
