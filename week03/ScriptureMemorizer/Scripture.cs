@@ -82,7 +82,7 @@ public class Scripture
         return _reference.GetDisplayText() + " - " + verseText;
     }
 
-    // third Method: Checks if the entire scripture has been hidden—useful 
+    // third Method: Checks if the entire scripture has been hidden
     // to determine when the program should end.
     public bool IsCompletelyHidden()
     {
