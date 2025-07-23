@@ -1,10 +1,5 @@
 using System;
 
-// This program helps users memorize a scripture.
-// It displays a scripture (reference and text) and gradually hides random words.
-// Each time the user presses Enter, more words are hidden.
-// The program ends when all words are hidden or the user types "quit".
-// It supports scriptures with single or multiple verses.
 class Program
 {
     static void Main(string[] args)
