@@ -1,14 +1,20 @@
 using System;
 public class Entry
 {
-    // Member variables 
-    public string _date;
-    public string _promptText;
-    public string _entryText;
-    public string _mood;
-    public string _weather;
+    // Member variables (Properties) use get; set;
+    // These let the program *save*(serialization) and *load*(deserialization) the data.
+    // When saving to a JSON file, the computer needs to "get" the values.
+    // When loading from a JSON file, it needs to "set" the values.
+    // If we don’t use get; set;, the program(System.Text.Json) can’t save or load the data correctly.
 
-    // Method
+    //allows JSON to read and write the date of the entry.
+    public string _date { get; set; } 
+    public string _promptText { get; set; }
+    public string _entryText { get; set; }
+    public string _mood { get; set; }
+    public string _weather { get; set; }
+
+    // Method, prints the contents of the entry to the console.
     public void Display()
     {
         Console.WriteLine("----------------------------------------------------------------------");
