@@ -1,5 +1,4 @@
 using System;
-
 class Address
 {
     // Member variables to store parts of the address
