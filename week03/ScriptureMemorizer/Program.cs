@@ -42,40 +42,23 @@ class Program
         int index = rand.Next(scriptureLibrary.Count); // Get a random index
         Scripture scripture = scriptureLibrary[index]; // Get a random scripture
 
-        // // A list of motivational messages to help the user stay encouraged
-        // List<string> encouragementMessages = new List<string>()
-        // {
-        //     "Practice makes progress!",
-        //     "Nice work, keep it up!",
-        //     " You're learning fast!",
-        //     "Don't stop now!",
-        //     "Fantastic progress!"
-        // };
+        // A list of motivational messages to help the user stay encouraged
+        List<string> encouragementMessages = new List<string>()
+        {
+            "Practice makes progress!",
+            "Nice work, keep it up!",
+            " You're learning fast!",
+            "Don't stop now!",
+            "Fantastic progress!"
+        };
 
-        // // This number will help us track how many times the user has pressed Enter
-        // int roundCount = 0;
-
-        // // Add 1 to the counter each round
-        // roundCounter++;
-
-        // // Every 2 rounds, show a motivational message
-        // if (roundCounter % 2 == 0) // This means every 2nd round
-        // {
-        //     int messageIndex = roundCounter / 2 - 1;
-
-        //     // Only show a message if we have one available in the list
-        //     if (messageIndex < encouragementMessages.Count)
-        //     {
-        //         Console.WriteLine("\n----------------------------------------------");
-        //         Console.WriteLine(encouragementMessages[messageIndex]); // Show the message
-        //         Console.WriteLine("Press Enter to continue...");
-        //         Console.ReadLine(); // Wait for the user to press Enter
-        //     }
-        // }
+        // This number will help us track how many times the user has pressed Enter
+        int roundCount = 0;
 
         // This keeps track of whether all the words have been hidden.
         // If true, it means the scripture was fully hidden and displayed the final message and can end the loop.
         bool allWordsHidden = false;
+
 
         //Start a loop that keeps running until all words are hidden
         //Keep looping while the scripture is not completely hidden.
@@ -96,6 +79,24 @@ class Program
             if (input.ToLower() == "quit")
             {
                 break;
+            }
+
+            // Count each round after Enter is pressed
+            roundCount++;
+
+            // Every 2 rounds, show a motivational message
+            if (roundCount % 2 == 0) // This means every 2nd round
+            {
+                int messageIndex = roundCount / 2 - 1;
+
+                // Only show a message if we have one available in the list
+                if (messageIndex < encouragementMessages.Count)
+                {
+                    Console.WriteLine("\n----------------------------------------------\n");
+                    Console.WriteLine(encouragementMessages[messageIndex]); // Show the message
+                    Console.WriteLine("\nPress Enter to continue...");
+                    Console.ReadLine(); // Wait for the user to press Enter
+                }
             }
 
             // Hide 4 random words before the next round
