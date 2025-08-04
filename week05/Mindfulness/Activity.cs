@@ -4,8 +4,8 @@ using System.Threading; //uses Thread.Sleep() to pause the program temporarily
 public class Activity
 {
     // Member variables
-    private string _ActivityName; 
-    private string _ActivityDescription; 
+    private string _ActivityName;
+    private string _ActivityDescription;
     protected int _duration; // stores how long the activity should run.
     // Making it protected means that derived classes can access and use it directly 
     // without needing a getter or setter.
@@ -22,28 +22,21 @@ public class Activity
     public void DisplayStartingMessage()
     {
         Console.Clear();
-        Console.WriteLine($"~ Welcome to the {_ActivityName}. ~ ");
-        Console.WriteLine(_ActivityDescription);
-        Console.WriteLine("How long in seconds, would you like for your section ?");
+        Console.WriteLine($"~ Welcome to the {_ActivityName}. ~\n ");
+        Console.WriteLine($"{_ActivityDescription}");
+        Console.Write("\nHow long in seconds, would you like for your section?  ");
         _duration = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Get ready...");
+        Console.WriteLine("\nGet ready...");
         ShowSpinner(3); // Called BEFORE the method is defined in code
                         // calls the ShowSpinner method, run for 3 seconds
-    }
-
-    public void DisplayEndingMessage(string ActivityName)
-    {
-        Console.WriteLine("\n Well done!");
-        ShowSpinner(3);
-        Console.WriteLine($"You have completed {_duration} seconds of the {_ActivityName}");
-        ShowSpinner(3);
+        Console.WriteLine();
     }
 
     public void ShowSpinner(int seconds)
     {
         // creates an array of spinner symbols( Spinner characters).
-        string[] symbols = {"|","/","-","\\",};
+        string[] symbols = { "|", "/", "-", "\\", };
         // Calculate when the spinner should stop
         DateTime stopTime = DateTime.Now.AddSeconds(seconds);
         // DateTime.Now gets the current time.
@@ -59,11 +52,10 @@ public class Activity
         while (DateTime.Now < stopTime)
         {
             // Show the current spinner symbol
-            Console.WriteLine(symbols[index]);
+            Console.Write(symbols[index]);
             // pauses the program for 250 milliseconds (0.25 seconds) so we can see the animation 
-            Thread.Sleep(250);
-            // Erase the spinner symbol
-            Console.Write("\b \b");
+            Thread.Sleep(350);
+            Console.Write("\b \b");// Erase the spinner symbol
             // Move to the next symbol (loop back to the start if needed)
             index++;
 
@@ -89,11 +81,24 @@ public class Activity
 
     public void ShowCountDown(int seconds)
     {
-        for (int i = seconds; i > 0; i--)
+        // Start countdown from 'seconds', decreasing by 1 each time.
+        //secondsLeft starts at the input number and counts down to 1.
+        for (int secondsLeft = seconds; secondsLeft > 0; secondsLeft--)
         {
-            Console.WriteLine(i);
-            Thread.Sleep(100);
-            Console.Write("\b \b");
+            // Print the current number (like 5, 4, 3...)
+            Console.Write($"{secondsLeft}");// Show countdown with dots
+            // Pauses the program for 1 second so the number stays visible.
+            Thread.Sleep(1000);
+            Console.Write("\b \b"); // Erase the number from the screen
         }
     }
+    
+      public void DisplayEndingMessage()
+    {
+        Console.WriteLine("\n Well done!!\n");
+        ShowSpinner(2);
+        Console.WriteLine($"You have completed {_duration} seconds of the {_ActivityName}");
+        ShowSpinner(2);
+    }
+
 }
