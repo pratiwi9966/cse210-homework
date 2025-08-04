@@ -46,7 +46,7 @@ class Program
 
             else if (choice == "4")
             {
-                Console.WriteLine("Goodbye!");
+                Console.WriteLine("     \nGoodbye! Thanks for using Mindfulness Program. ");
                 Thread.Sleep(1500); // Small pause before closing, gives the user time to read.
             }
 
