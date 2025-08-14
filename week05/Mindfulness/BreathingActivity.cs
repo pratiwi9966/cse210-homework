@@ -43,6 +43,9 @@ public class BreathingActivity : Activity
         }
 
         DisplayEndingMessage(); // call method from Activity class
+        // Log the activity automatically
+        LogActivity();
+
     }
 
         

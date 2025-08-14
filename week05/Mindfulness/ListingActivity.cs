@@ -86,6 +86,8 @@ public class ListingActivity : Activity
         Console.WriteLine($"\nYou listed {_count} responses!");
 
         DisplayEndingMessage();
+        // Log the activity automatically
+        LogActivity();
     }
 
     

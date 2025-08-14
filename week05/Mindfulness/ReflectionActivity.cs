@@ -62,8 +62,8 @@ public class ReflectionActivity : Activity
         ShowSpinner(3);
         Console.WriteLine();
     }
-    
-     public void Run()
+
+    public void Run()
     {
         DisplayStartingMessage(); // Ask user for duration, display message
 
@@ -73,7 +73,7 @@ public class ReflectionActivity : Activity
 
         Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.");
         Console.Write("You may begin in: "); ShowCountDown(5);
-        
+
 
         DisplayQuestion(); // Show one random qestion
 
@@ -88,6 +88,8 @@ public class ReflectionActivity : Activity
         // }
 
         DisplayEndingMessage(); // call method from Activity class
+        // Log the activity automatically
+        LogActivity();
     }
 
 }

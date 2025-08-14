@@ -6,6 +6,7 @@ public class Activity
     // Member variables
     private string _ActivityName;
     private string _ActivityDescription;
+    protected string _logFile = "activity_log.txt";
     protected int _duration; // stores how long the activity should run.
     // Making it protected means that derived classes can access and use it directly 
     // without needing a getter or setter.
@@ -92,13 +93,50 @@ public class Activity
             Console.Write("\b \b"); // Erase the number from the screen
         }
     }
-    
-      public void DisplayEndingMessage()
+
+    public void DisplayEndingMessage()
     {
         Console.WriteLine("\n Well done!!\n");
         ShowSpinner(2);
         Console.WriteLine($"You have completed {_duration} seconds of the {_ActivityName}");
         ShowSpinner(2);
+    }
+
+    public List<string> LoadLog()
+    {
+        // Creates a new empty list of strings. This will store all the lines from log file.
+        List<string> activityLogs = new List<string>();
+
+        // Checks if the file specified by _logFile exists.
+        if (File.Exists(_logFile))
+        {
+            //Reads all lines from the file at once and puts them into a string array.
+            //Each line in the file becomes one element in the lines array.
+            string[] lines = File.ReadAllLines(_logFile);
+            //Loops through every line from the file.
+            foreach (string line in lines)
+            {
+                //Adds each line from the file into activityLogs list.
+                activityLogs.Add(line);
+            }
+        }
+        //Returns the list to wherever the method was called,
+        //now we have a list of all previous activity logs in memory.
+        return activityLogs;
+    }
+
+    public void LogActivity()
+    {
+        //Creates a single line of text for the log file.
+        string logEntry = $"{DateTime.Now} | {_ActivityName} | Duration: {_duration} seconds";
+
+        // Add the log entry to the log file
+        using (StreamWriter writer = new StreamWriter(_logFile, true)) // true = append, don’t overwrite
+        {
+            writer.WriteLine(logEntry);
+        }
+
+        Console.WriteLine("Activity logged successfully.\n");
     }
 
 }
