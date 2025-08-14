@@ -31,7 +31,6 @@ public class Cycling : Activity
         {
             return 0;
         }
-
         // Pace = 60 / speed   
         return 60 / _speed; // min per mile
     }
