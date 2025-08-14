@@ -11,6 +11,7 @@ public class Running : Activity
         _distance = distance;
     }
 
+    //Override Methods
     public override double GetDistance()
     {
         return _distance;

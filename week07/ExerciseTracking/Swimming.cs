@@ -15,6 +15,7 @@ public class Swimming : Activity
         _laps = laps;
     }
 
+    //Override Methods
     public override double GetDistance()
     {
         // Convert laps to miles (1 meter = 0.000621371 miles)
